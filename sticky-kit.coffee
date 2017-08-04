@@ -16,6 +16,7 @@ $.fn.stick_in_parent = (opts={}) ->
     offset_top
     spacer: manual_spacer
     bottoming: enable_bottoming
+    force_sticky
   } = opts
 
   win_height = win.height()
@@ -109,7 +110,7 @@ $.fn.stick_in_parent = (opts={}) ->
           tick()
 
       recalc()
-      return if height == parent_height
+      return if height == parent_height && force_sticky != true
 
       last_pos = undefined
       offset = offset_top
